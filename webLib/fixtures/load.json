@@ -1,0 +1,36 @@
+[
+    {
+        "model": "webLib.Author",
+        "pk": "123e4567-e89b-12d3-a456-426655440000",
+        "fields": {
+            "name": "Nem",
+            "age": 25,
+            "email": "dosya@mail.com",
+            "ltrType": "b"
+        }
+    },
+    {
+        "model": "webLib.Book",
+        "pk": 8,
+        "fields": {
+            "title": "Горячий сердец",
+            "description": "byba",
+            "page_num": 244,
+            "piblished": "2022-07-14 18:33:52.430592+00:00",
+            "author": "123e4567-e89b-12d3-a456-426655440000"
+        }
+    },
+    {
+        "model": "webLib.Book",
+        "pk": 7,
+        "fields": {
+            "title": "Серце горго",
+            "description": "byba",
+            "page_num": 2634,
+            "piblished": "2022-07-14 18:33:52.430592+00:00",
+            "author": "123e4567-e89b-12d3-a456-426655440000"
+        }
+    }
+]
+
+
