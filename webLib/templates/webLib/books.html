@@ -1,0 +1,20 @@
+{% extends 'webLib/main.html' %}
+
+
+
+
+{% block content %}
+    <h1>Books</h1>
+    <div>
+        {% if books %}
+            {% for book in books %}
+            <p>Название книги: {{book.title}}</p>
+            <p>Описание: {{book.description}}</p>
+            <p>Публикация: {{book.piblished|date:'DATETIME_FORMAT'}}</p>
+            <hr>
+            {% endfor %}
+        {% else %}
+            <p>No authors active</p>
+        {% endif %}
+    </div>
+{% endblock %}

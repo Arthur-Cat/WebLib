@@ -1,0 +1,20 @@
+{% extends 'webLib/main.html' %}
+
+
+
+
+{% block content %}
+    <h1>Authors</h1>
+    <div>
+        {% if authors %}
+            {% for author in authors %}
+            <p>Имя автора: {{author.name}}</p>
+            <p>Возраст: {{author.age}}</p>
+            <p>Email адрес: {{author.email}}</p>
+            <hr>
+            {% endfor %}
+        {% else %}
+            <p>No authors active</p>
+        {% endif %}
+    </div>
+{% endblock %}
