@@ -11,3 +11,6 @@ def authors(request):
 def books(request):
     all_books = {'books': Book.objects.all()}
     return render(request, 'webLib/books.html', all_books)
+
+def about(request):
+    return render(request, 'webLib/about.html')

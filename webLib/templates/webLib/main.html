@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WEB LIB</title>
+    <link rel="stylesheet" href="{% static "webLib/css/main.css" %}">
 </head>
 <body>
     <h1>Welcome to WebLib</h1>
@@ -20,7 +23,8 @@
         ансили могли лечь в основу более поздних скандинавских легенд о 
         тёмных и светлых эльфах.
     </p>
-    
+    <a href="about">Show About</a>
+
     {% block content %}
 
     {% endblock %}
