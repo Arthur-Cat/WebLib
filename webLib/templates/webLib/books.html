@@ -20,7 +20,7 @@
                     {% for book in books %}
                         <tr>
                             <th scope="row">
-                                <a href="">{{book.title}}</a>
+                                <a href="{% url 'book_title' book.pk %}">{{book.title}}</a>
                             </th>                            
                             <td>{{book.description}}</td>
                             <td>{{book.page_num}}</td>

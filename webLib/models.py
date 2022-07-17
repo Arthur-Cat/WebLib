@@ -29,6 +29,13 @@ class Author(models.Model):
     ltrType = models.CharField(max_length=1 ,verbose_name='Тип литературы', 
                                 choices=TYPES, default='a')
 
+    def info(self):
+        name = "Имя: %s" % self.name
+        age = "Возраст: %s" % self.age
+        email = "Почта: %s" % self.email
+        ltrType = "Тип: %s" % self.get_ltrType_display()
+        return [name, age, email, ltrType]
+
     def __str__(self) :
         return self.name
 

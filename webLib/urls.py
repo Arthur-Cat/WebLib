@@ -5,7 +5,7 @@ urlpatterns = [
     path('', main, name='webLib'),
     path('authors', authors, name='authors'),
     path('authors/<uuid:pk>', author_id, name='author_id'),     
-    path('book/<str:title_1>', book_title, name='book_title'),    
+    path('books/<int:pk>', book_title, name='book_title'),    
     path('books', books, name='books'),
     path('about', about, name='about'),
 ]

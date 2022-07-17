@@ -18,8 +18,8 @@ def books(request):
     all_books = {'books': Book.objects.all()}
     return render(request, 'webLib/books.html', all_books)
 
-def book_title(request, title_1):
-    book = Book.objects.get(title_1=title_1)
+def book_title(request, pk):
+    book = Book.objects.get(pk=pk)
     all_books = {'book': book}
     return render(request, 'webLib/book_title.html', all_books)
 
