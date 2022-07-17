@@ -1,0 +1,16 @@
+{% extends 'webLib/main.html' %}
+
+
+
+
+{% block content %}
+    <div class="container">
+        <h1>Author </h1>      
+        <p>Уникальный ключ: {{author.pk}}</p>
+        <p>Кол-во книг: {{books_amout}}</p>
+        <p>name: {{author.name}}</p>
+        <p>age: {{author.age}}</p>
+        <hr>
+              
+    </div>
+{% endblock %}

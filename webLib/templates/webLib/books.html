@@ -4,8 +4,37 @@
 
 
 {% block content %}
-    <h1>Books</h1>
-    <div>
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                <th scope="col">title</th>
+                <th scope="col">description</th>
+                <th scope="col">page_num</th>
+                <th scope="col">piblished</th>
+                <th scope="col">author</th>
+                </tr>
+            </thead>
+            <tbody>                
+                {% if books %}
+                    {% for book in books %}
+                        <tr>
+                            <th scope="row">
+                                <a href="">{{book.title}}</a>
+                            </th>                            
+                            <td>{{book.description}}</td>
+                            <td>{{book.page_num}}</td>
+                            <td>{{book.piblished}}</td>
+                            <td>{{book.author}}</td>
+                        </tr>                        
+                    {% endfor %}
+                {% else %}
+                    <p>No authors active</p>
+                {% endif %}                         
+            </tbody>
+        </table>
+
+        <!-- <h1>Books</h1>
         {% if books %}
             {% for book in books %}
             <p>Название книги: {{book.title}}</p>
@@ -15,6 +44,6 @@
             {% endfor %}
         {% else %}
             <p>No authors active</p>
-        {% endif %}
+        {% endif %} -->
     </div>
 {% endblock %}

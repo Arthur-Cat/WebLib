@@ -4,17 +4,35 @@
 
 
 {% block content %}
-    <h1>Authors</h1>
-    <div>
-        {% if authors %}
-            {% for author in authors %}
-            <p>Имя автора: {{author.name}}</p>
-            <p>Возраст: {{author.age}}</p>
-            <p>Email адрес: {{author.email}}</p>
-            <hr>
-            {% endfor %}
-        {% else %}
-            <p>No authors active</p>
-        {% endif %}
+    <div class='container'>
+
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">PK</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">email</th>
+              </tr>
+            </thead>
+            <tbody>                
+                {% if authors %}
+                    {% for author in authors %}
+                        <tr>
+                            <th scope="row">
+                                <a href= "{% url 'author_id' author.pk %}">{{author.pk}}</a>                            
+                            </th>
+                            <td>{{author.name}}</td>
+                            <td>{{author.age}}</td>
+                            <td>{{author.email}}</td>
+                        </tr>                        
+                    {% endfor %}
+                {% else %}
+                    <p>No authors active</p>
+                {% endif %}                         
+            </tbody>
+          </table>
+
+        
     </div>
 {% endblock %}

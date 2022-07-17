@@ -8,26 +8,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WEB LIB</title>
     <link rel="stylesheet" href="{% static "webLib/css/main.css" %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" 
+    crossorigin="anonymous">
 </head>
 <body>
-    <h1>Welcome to WebLib</h1>
-    <p>
-        Начнём с самого слова. В английской версии 
-        феи называются Seelie («счастье», «удача», «благословление») – 
-        что-то вроде вида фей в шотландской мифологии. В оной 
-        описываются как в целом добрые существа, помогающие людям, 
-        но иногда проказливые и мстящие за оскорбления. 
-        У них есть своего рода противоположность. 
-        Unseelie – злые феи нападающие на путешественников ночью и 
-        заставляющие делать дурные вещи. Некоторые считают, что сили и 
-        ансили могли лечь в основу более поздних скандинавских легенд о 
-        тёмных и светлых эльфах.
-    </p>
-    <a href="about">Show About</a>
+    {% include 'webLib/navbar.html' %}
+    <div class="container">
+        <h1>Welcome to WebLib</h1>    
 
+    </div>    
     {% block content %}
-
+    
+    
     {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" 
+    crossorigin="anonymous"></script>
+ 
 
 </body>
 </html>
