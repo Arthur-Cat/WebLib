@@ -1,0 +1,16 @@
+{% extends "webLib/books.html" %}
+
+{% block content %}
+
+    <div class="container"> 
+    <h1>Загеристрируйте книгу</h1>
+    <hr>                      
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+        </div>
+        <input type="submit" class="btn btn-primary" value="Выложить">
+    </form>
+    </div>  
+{% endblock %}
