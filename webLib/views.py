@@ -49,3 +49,19 @@ def create_book(request):
                 return redirect('books')
     return render(request, 'webLib/book_form.html', {"form": book_form})
 
+def update_book(request, pk):
+    book = Book.objects.get(pk=pk)
+    book_form = BookForm(instance=book)
+    if request.method == "POST":
+        book_form = BookForm(request.POST, instance=book)
+        if book_form.is_valid():
+            book_form.save()
+            return redirect('books')
+    return render(request, 'webLib/book_form.html', {"form": book_form})
+
+def delete_book(request, pk):
+    book = Book.objects.get(pk=pk)
+    if request.method == "POST":
+        book.delete()
+        return redirect('books')
+    return render(request, 'webLib/delete_book.html', {'book': book})

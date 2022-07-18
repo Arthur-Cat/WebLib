@@ -1,7 +1,8 @@
-from cProfile import label
 from .models import Book
 from django import forms
-from django.forms import widgets
+from django.forms import widgets, fields
+from django.core import validators
+from django.core.exceptions import ValidationError
 
 
 class SearchAuthor(forms.Form):
@@ -15,16 +16,23 @@ class PostAuthor(forms.Form):
 
 
 class BookForm(forms.ModelForm):
-    
+    title = forms.CharField(
+        label='Имя',
+        max_length=150,
+        required=False,
+        validators=[validators.RegexValidator(regex='^.{3,}$')],
+        error_messages={'invalid': 'Недостимый формат. Сделайте название больше'}
+    )
 
     
     class Meta:
         model = Book
         fields = "__all__"
         labels = {
-            'title': 'Название', 
             'description': 'Описание',
             'page_num': 'Кол-во страниц', 
             'author': 'Писатель', 
             }
         widgets = {'description': widgets.TextInput}
+
+
