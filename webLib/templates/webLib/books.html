@@ -5,14 +5,16 @@
 
 {% block content %}
     <div class="container">
+        <h1>Книги</h1>        
+            
         <table class="table table-striped">
             <thead>
                 <tr>
-                <th scope="col">title</th>
-                <th scope="col">description</th>
-                <th scope="col">page_num</th>
-                <th scope="col">piblished</th>
-                <th scope="col">author</th>
+                <th scope="col">Название</th>
+                <th scope="col">Краткое описание</th>
+                <th scope="col">Кол-во страниц</th>
+                <th scope="col">Время публикации</th>
+                <th scope="col">Автор</th>
                 </tr>
             </thead>
             <tbody>                
@@ -30,20 +32,12 @@
                     {% endfor %}
                 {% else %}
                     <p>No authors active</p>
-                {% endif %}                         
+                {% endif %}   
+                                      
             </tbody>
         </table>
-
-        <!-- <h1>Books</h1>
-        {% if books %}
-            {% for book in books %}
-            <p>Название книги: {{book.title}}</p>
-            <p>Описание: {{book.description}}</p>
-            <p>Публикация: {{book.piblished|date:'DATETIME_FORMAT'}}</p>
-            <hr>
-            {% endfor %}
-        {% else %}
-            <p>No authors active</p>
-        {% endif %} -->
+        <hr>   
+        <a class="btn btn-sm btn btn-info" href="create_book">Опубликовать книгу</a>         
+        
     </div>
 {% endblock %}

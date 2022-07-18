@@ -1,10 +1,24 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from webLib.models import Author, Book
+from webLib.forms import SearchAuthor, PostAuthor, BookForm
+from django.forms import modelform_factory, widgets
+
 
 def main(request):
-    return render(request, 'webLib/main.html')
+    book_form = BookForm()
+    return render(request, 'webLib/main.html', {"form": book_form})
+    
+    
 
 def authors(request):
+    if "author_uuid" in request.GET:
+        return redirect('author_id', request.GET['author_uuid'])
+    if request.method == 'POST':
+        data = dict()
+        data["name"] = request.POST.get('name')
+        data["age"] = request.POST.get('age')
+        data["email"] = request.POST.get('email')
+        Author.objects.create(**data)
     all_authors = {'authors': Author.objects.all()}
     return render(request, 'webLib/authors.html', all_authors)
 
@@ -25,4 +39,13 @@ def book_title(request, pk):
 
 def about(request):
     return render(request, 'webLib/about.html')
+
+def create_book(request):
+    book_form = BookForm()
+    if request.method == "POST":
+            book_form = BookForm(request.POST)
+            if book_form.is_valid():
+                book_form.save()
+                return redirect('books')
+    return render(request, 'webLib/book_form.html', {"form": book_form})
 
