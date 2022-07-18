@@ -4,7 +4,7 @@
 
 
 {% block content %}
-    <div class="container">
+    <div class="card card-block">
         <h1>Книги</h1>        
             
         <table class="table table-striped">
@@ -12,7 +12,6 @@
                 <tr>
                 <th scope="col">Название</th>
                 <th scope="col">Краткое описание</th>
-                <th scope="col">Кол-во страниц</th>
                 <th scope="col">Время публикации</th>
                 <th scope="col">Автор</th>
                 </tr>
@@ -25,19 +24,20 @@
                                 <a href="{% url 'book_title' book.pk %}">{{book.title}}</a>
                             </th>                            
                             <td>{{book.description}}</td>
-                            <td>{{book.page_num}}</td>
                             <td>{{book.piblished}}</td>
                             <td>{{book.author}}</td>
+                            <td><a class="btn btn-sm btn btn-info" href="{% url 'update_book' book.pk %}">Редактировать</a></td>
+                            <td><a class="btn btn-sm btn btn-danger" href="{% url 'delete_book' book.pk %}">Удаить запись</a></td>
                         </tr>                        
                     {% endfor %}
                 {% else %}
-                    <p>No authors active</p>
+                    <p>Книжек не осталось</p>
                 {% endif %}   
                                       
             </tbody>
         </table>
         <hr>   
-        <a class="btn btn-sm btn btn-info" href="create_book">Опубликовать книгу</a>         
+        <a class="btn btn-primary btn btn-block" href="create_book">Опубликовать книгу</a>         
         
     </div>
 {% endblock %}

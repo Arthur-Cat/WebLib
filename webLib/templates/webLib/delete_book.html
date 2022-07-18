@@ -1,0 +1,13 @@
+{% extends 'webLib/books.html' %}
+
+
+{% block content %}
+    <p>Вы точно хотите удалить [{{ book }}]?</p>
+    <form method="POST">
+        {% csrf_token %}
+        <td><a class="btn btn-primary btn btn-sm btn btn-info" href="">Вернутся</a></td>
+
+        <input type="submit" value="Удалить">
+    </form>
+
+{% endblock %}
