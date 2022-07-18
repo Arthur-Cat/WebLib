@@ -15,11 +15,27 @@
 </head>
 <body>
     {% include 'webLib/navbar.html' %}
+    {% block content %}
     <div class="container">
         <h1>Добро пожаловать в Веб-Библиотеку</h1>    
-
+        <br>                 
+        <h1>Регистрация автора</h1>    
+        <form action="{% url 'authors' %}" method="POST">
+            {% csrf_token %}
+             {{ form_post }}
+             <br>         
+             <br>         
+             <button type="submit" class="btn btn-primary">Зарегестрировать</button>
+        </form>
+        <br>
+        <form action="{% url 'authors' %}" method="GET">
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-primary" value="Поиск">
+        </form>
     </div>    
-    {% block content %}
+    
+
+
     
     
     {% endblock %}

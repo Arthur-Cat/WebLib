@@ -1,10 +1,23 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from webLib.models import Author, Book
+from webLib.forms import SearchAuthor, PostAuthor
 
 def main(request):
-    return render(request, 'webLib/main.html')
+    form = SearchAuthor(request.GET)
+    form_post = PostAuthor(request.POST)
+    return render(request, 'webLib/main.html', {"form": form, "form_post": form_post})
+
+    
 
 def authors(request):
+    if "author_uuid" in request.GET:
+        return redirect('author_id', request.GET['author_uuid'])
+    if request.method == 'POST':
+        data = dict()
+        data["name"] = request.POST.get('name')
+        data["age"] = request.POST.get('age')
+        data["email"] = request.POST.get('email')
+        Author.objects.create(**data)
     all_authors = {'authors': Author.objects.all()}
     return render(request, 'webLib/authors.html', all_authors)
 
